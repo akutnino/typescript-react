@@ -98,3 +98,13 @@ let creds: SampleCredentials;
 creds = { password: 'abc', email: '123' };
 
 console.log(creds);
+
+// Interfaces vs Custom Types =============================================
+// Use Custom Types by default.
+// Use Interfaces for object only.
+
+class AuthCredentials implements SampleCredentials {
+	email: string;
+	password: string;
+	username: string;
+}
