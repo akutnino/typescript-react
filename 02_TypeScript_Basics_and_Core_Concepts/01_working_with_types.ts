@@ -9,8 +9,8 @@ const isMale: boolean = true;
 const bigNum: bigint = 9123412999999999993412341234n;
 const nulls: null = null;
 const undefine: undefined = undefined;
-const mySymbol: symbol = Symbol(23);
-console.log(mySymbol);
+const mySymbol: symbol = Symbol('name');
+console.log(mySymbol.description);
 
 // Combining Types: Union Types
 let userID: string | number = 'hello';
@@ -40,3 +40,12 @@ userTwo = {
 };
 
 console.log(userTwo);
+
+// Array Types
+const myHobbies: Array<string> = ['Sports', 'Cooking', 'Reading'];
+const allCaps: Array<string> = myHobbies.map((name) => name.toUpperCase());
+
+const myNames: string[] = ['Nino', 'Louis', 'Aranas', 'Akut'];
+// number[], boolean[], {name: string, age: number}[]
+
+console.log(allCaps);
