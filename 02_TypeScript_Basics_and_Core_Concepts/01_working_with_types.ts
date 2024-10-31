@@ -16,3 +16,27 @@ console.log(mySymbol);
 let userID: string | number = 'hello';
 userID = 100;
 console.log(userID);
+
+// Object Types
+const userOne: object = {
+	name: 'Nino',
+	age: 23,
+	isAdmin: true,
+	id: 123,
+};
+
+let userTwo: {
+	firstName: string;
+	userAge: number;
+	isMale: boolean;
+	userID: string;
+};
+
+userTwo = {
+	firstName: 'Louis',
+	userAge: 23,
+	isMale: true,
+	userID: 'abc',
+};
+
+console.log(userTwo);
