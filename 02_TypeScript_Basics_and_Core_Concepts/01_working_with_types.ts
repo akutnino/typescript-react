@@ -1,8 +1,8 @@
-// Inference & Explicit Type Annotations
+// Inference & Explicit Type Annotations ==========================
 let userName: string = 'Nino';
 console.log(userName);
 
-// Basic Primitive Types
+// Basic Primitive Types ==========================================
 const firstName: string = 'Nino';
 const age: number = 23;
 const isMale: boolean = true;
@@ -12,12 +12,12 @@ const undefine: undefined = undefined;
 const mySymbol: symbol = Symbol('name');
 console.log(mySymbol.description);
 
-// Combining Types: Union Types
+// Combining Types: Union Types ===================================
 let userID: string | number = 'hello';
 userID = 100;
 console.log(userID);
 
-// Object Types
+// Object Types ===================================================
 const userOne: object = {
 	name: 'Nino',
 	age: 23,
@@ -41,7 +41,7 @@ userTwo = {
 
 console.log(userTwo);
 
-// Array Types
+// Array Types ==========================================================
 const myHobbies: Array<string> = ['Sports', 'Cooking', 'Reading'];
 const allCaps: Array<string> = myHobbies.map((name) => name.toUpperCase());
 
@@ -50,10 +50,20 @@ const myNames: string[] = ['Nino', 'Louis', 'Aranas', 'Akut'];
 
 console.log(allCaps);
 
-// Adding Types to Functions
+// Adding Types to Functions ============================================
 function add(a: number, b: number): number {
 	const result: number = a + b;
 	return result;
 }
 
 console.log(add(5, 10));
+
+function calculate(
+	a: number,
+	b: number,
+	callbackFunction: (a: number, b: number) => number
+): number {
+	return callbackFunction(a, b);
+}
+
+console.log(calculate(50, 10, add));
