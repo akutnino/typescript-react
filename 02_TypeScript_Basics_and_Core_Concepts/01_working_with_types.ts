@@ -49,3 +49,11 @@ const myNames: string[] = ['Nino', 'Louis', 'Aranas', 'Akut'];
 // number[], boolean[], {name: string, age: number}[]
 
 console.log(allCaps);
+
+// Adding Types to Functions
+function add(a: number, b: number): number {
+	const result: number = a + b;
+	return result;
+}
+
+console.log(add(5, 10));

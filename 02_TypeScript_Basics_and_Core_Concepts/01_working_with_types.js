@@ -31,6 +31,13 @@ userTwo = {
 console.log(userTwo);
 // Array Types
 var myHobbies = ['Sports', 'Cooking', 'Reading'];
-var myNames = ['Nino', 'Louis', 'Aranas', 'Akut'];
 var allCaps = myHobbies.map(function (name) { return name.toUpperCase(); });
+var myNames = ['Nino', 'Louis', 'Aranas', 'Akut'];
+// number[], boolean[], {name: string, age: number}[]
 console.log(allCaps);
+// Adding Types to Functions
+function add(a, b) {
+    var result = a + b;
+    return result;
+}
+console.log(add(5, 10));
