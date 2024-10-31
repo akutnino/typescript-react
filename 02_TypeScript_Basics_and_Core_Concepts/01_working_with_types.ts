@@ -51,6 +51,8 @@ const myNames: string[] = ['Nino', 'Louis', 'Aranas', 'Akut'];
 console.log(allCaps);
 
 // Adding Types to Functions ============================================
+type addFn = (a: number, b: number) => number;
+
 function add(a: number, b: number): number {
 	const result: number = a + b;
 	return result;
@@ -58,12 +60,30 @@ function add(a: number, b: number): number {
 
 console.log(add(5, 10));
 
-function calculate(
-	a: number,
-	b: number,
-	callbackFunction: (a: number, b: number) => number
-): number {
+function calculate(a: number, b: number, callbackFunction: addFn): number {
 	return callbackFunction(a, b);
 }
 
 console.log(calculate(50, 10, add));
+
+// Creating Custom Types / Type Aliases ==================================
+type StringNum = string | number;
+
+const plateNUmber: StringNum = 'ABC 123';
+console.log(plateNUmber);
+
+type User = {
+	firstName: string;
+	userAge: number;
+	isMale: boolean;
+	userID: string;
+};
+
+const myUserObj: User = {
+	firstName: 'Bro',
+	userAge: 25,
+	isMale: true,
+	userID: 'zxc',
+};
+
+console.log(myUserObj);
