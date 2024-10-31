@@ -87,3 +87,14 @@ const myUserObj: User = {
 };
 
 console.log(myUserObj);
+
+// Defining Object Types with Interfaces ==================================
+interface SampleCredentials {
+	password: string;
+	email: string;
+}
+
+let creds: SampleCredentials;
+creds = { password: 'abc', email: '123' };
+
+console.log(creds);

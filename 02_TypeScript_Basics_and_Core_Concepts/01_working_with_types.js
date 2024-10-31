@@ -53,3 +53,6 @@ var myUserObj = {
     userID: 'zxc',
 };
 console.log(myUserObj);
+var creds;
+creds = { password: 'abc', email: '123' };
+console.log(creds);
