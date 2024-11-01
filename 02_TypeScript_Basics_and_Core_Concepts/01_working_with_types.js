@@ -56,3 +56,22 @@ console.log(myUserObj);
 var creds;
 creds = { password: 'abc', email: '123' };
 console.log(creds);
+// Interfaces vs Custom Types =============================================
+// Use Custom Types by default.
+// Use Interfaces for object only.
+var AuthCredentials = /** @class */ (function () {
+    function AuthCredentials() {
+    }
+    return AuthCredentials;
+}());
+var admin = {
+    permissions: ['Create', 'Read', 'Update', 'Delete'],
+    userName: 'Nino',
+    card: '',
+};
+console.log(admin);
+var mainAdmin = {
+    permissions: ['Create', 'Read', 'Update', 'Delete'],
+    userName: 'Louis',
+};
+console.log(mainAdmin);

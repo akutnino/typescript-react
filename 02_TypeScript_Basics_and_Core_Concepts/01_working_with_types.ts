@@ -108,3 +108,43 @@ class AuthCredentials implements SampleCredentials {
 	password: string;
 	username: string;
 }
+
+// Merging Types =========================================================
+type Admin = {
+	permissions: string[];
+};
+
+type AppUser = {
+	userName: string;
+};
+
+type AddAdmin = Admin &
+	AppUser & {
+		card: string;
+	};
+
+let admin: AddAdmin = {
+	permissions: ['Create', 'Read', 'Update', 'Delete'],
+	userName: 'Nino',
+	card: '',
+};
+
+console.log(admin);
+
+// Merging interfaces =========================================================
+interface MainAdmin {
+	permissions: string[];
+}
+
+interface MainAppUser {
+	userName: string;
+}
+
+interface MainAdminUser extends MainAdmin, MainAppUser {}
+
+let mainAdmin: MainAdminUser = {
+	permissions: ['Create', 'Read', 'Update', 'Delete'],
+	userName: 'Louis',
+};
+
+console.log(mainAdmin);
