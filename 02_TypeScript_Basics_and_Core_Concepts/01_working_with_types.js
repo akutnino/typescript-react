@@ -75,3 +75,10 @@ var mainAdmin = {
     userName: 'Louis',
 };
 console.log(mainAdmin);
+// Being Specific With Literal Types ==========================================
+var role;
+role = 'admin';
+role = 'user';
+role = 'editor';
+// role = 'abc'; would be an error.
+console.log(role);
