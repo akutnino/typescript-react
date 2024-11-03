@@ -150,10 +150,38 @@ let mainAdmin: MainAdminUser = {
 console.log(mainAdmin);
 
 // Being Specific With Literal Types ==========================================
-let role: 'admin' | 'user' | 'editor';
+type Role = 'admin' | 'user' | 'editor';
+
+let role: Role;
 
 role = 'admin';
 role = 'user';
 role = 'editor';
 // role = 'abc'; would be an error.
 console.log(role);
+
+// Adding Type Guards ==========================================================
+
+function performAction(action: string | number, role: Role) {
+	if (role === 'admin' && typeof action === 'string') {
+		return;
+	}
+
+	switch (role) {
+		case 'admin': {
+			return;
+		}
+
+		case 'editor': {
+			return;
+		}
+
+		case 'user': {
+			return;
+		}
+
+		default: {
+			return `${action} ${role}`;
+		}
+	}
+}
