@@ -185,3 +185,41 @@ function performAction(action: string | number, role: Role) {
 		}
 	}
 }
+
+// Making Sense Of Generic Types ================================================
+
+let roles: Array<Role>;
+roles = ['admin', 'editor'];
+
+type DataStorage<T> = {
+	storage: T[];
+	add: (data: T) => void;
+};
+
+const textStorage: DataStorage<string> = {
+	storage: ['ABC'],
+	add(data) {
+		this.storage.push(data);
+	},
+};
+
+const userStorage: DataStorage<User> = {
+	storage: [{ firstName: 'bro', isMale: true, userAge: 23, userID: 'qwe' }],
+	add(data) {
+		if (typeof data.firstName === 'string') {
+			console.log(data);
+		}
+		this.storage.push(data);
+	},
+};
+
+// Generic functions ======================================================
+function merge<T, U>(a: T, b: U) {
+	return {
+		...a,
+		...b,
+	};
+}
+
+const newUser = merge<{ name: string }, { age: number }>({ name: 'Nino' }, { age: 23 });
+console.log(newUser);
