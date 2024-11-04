@@ -1,3 +1,8 @@
+// interface CourseGoalProps {
+// 	title: string;
+// 	description: string;
+// }
+
 type CourseGoalProps = {
 	title: string;
 	description: string;
