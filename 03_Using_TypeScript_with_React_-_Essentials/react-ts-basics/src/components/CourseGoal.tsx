@@ -1,21 +1,26 @@
+import { type ReactNode } from 'react';
+// import { type PropsWithChildren, type ReactNode } from 'react';
+
+// type CourseGoalProps = PropsWithChildren<{ title: string }>;
+
 // interface CourseGoalProps {
 // 	title: string;
-// 	description: string;
+// 	children: ReactNode;
 // }
 
 type CourseGoalProps = {
 	title: string;
-	description: string;
+	children: ReactNode;
 };
 
 function CourseGoal(props: CourseGoalProps) {
-	const { description, title } = props;
+	const { title, children } = props;
 
 	return (
 		<article>
 			<div>
 				<h2>{title}</h2>
-				<p>{description}</p>
+				{children}
 			</div>
 			<button type='button'>Delete</button>
 		</article>
