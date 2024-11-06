@@ -34,7 +34,10 @@ function App() {
 				Add Goal
 			</button>
 
-			<CourseGoalList goals={goals} />
+			<CourseGoalList
+				goals={goals}
+				setGoals={setGoals}
+			/>
 		</main>
 	);
 }

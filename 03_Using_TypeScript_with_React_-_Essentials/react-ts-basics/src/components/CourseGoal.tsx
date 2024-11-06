@@ -7,11 +7,12 @@ import { type ReactNode } from 'react';
 
 type CourseGoalProps = {
 	title: string;
+	onClick: () => void;
 	children: ReactNode;
 };
 
 function CourseGoal(props: CourseGoalProps) {
-	const { title, children } = props;
+	const { title, onClick, children } = props;
 
 	return (
 		<article>
@@ -19,7 +20,12 @@ function CourseGoal(props: CourseGoalProps) {
 				<h2>{title}</h2>
 				{children}
 			</div>
-			<button type='button'>Delete</button>
+			<button
+				type='button'
+				onClick={onClick}
+			>
+				Delete
+			</button>
 		</article>
 	);
 }
