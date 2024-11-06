@@ -1,14 +1,22 @@
 import { useRef, type FormEvent } from 'react';
 
-function NewGoal() {
+type NewGoalProps = {
+	handleAddGoal: (goalInput: string, summaryInput: string) => void;
+};
+
+function NewGoal(props: NewGoalProps) {
+	const { handleAddGoal } = props;
 	const goalInputRef = useRef<HTMLInputElement>(null);
 	const summaryInputRef = useRef<HTMLInputElement>(null);
 
-	const handleFormSubmit = (event: FormEvent) => {
+	const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 
 		const enteredGoal = goalInputRef.current!.value;
 		const enteredSummary = summaryInputRef.current!.value;
+
+		handleAddGoal(enteredGoal, enteredSummary);
+		event.currentTarget.reset();
 	};
 
 	return (
