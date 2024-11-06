@@ -20,6 +20,7 @@ function NewGoal(props: NewGoalProps) {
 
 	const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
+		if (goalInput === '' || summaryInput === '') return;
 
 		handleAddGoal(goalInput, summaryInput);
 
