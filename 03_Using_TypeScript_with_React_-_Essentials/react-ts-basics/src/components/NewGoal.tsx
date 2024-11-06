@@ -1,4 +1,4 @@
-import { useRef, type FormEvent } from 'react';
+import { type ChangeEvent, type FormEvent, useState } from 'react';
 
 type NewGoalProps = {
 	handleAddGoal: (goalInput: string, summaryInput: string) => void;
@@ -6,17 +6,25 @@ type NewGoalProps = {
 
 function NewGoal(props: NewGoalProps) {
 	const { handleAddGoal } = props;
-	const goalInputRef = useRef<HTMLInputElement>(null);
-	const summaryInputRef = useRef<HTMLInputElement>(null);
+
+	const [goalInput, setGoalInput] = useState<string>('');
+	const [summaryInput, setSummaryInput] = useState<string>('');
+
+	const handleGoalInput = (event: ChangeEvent<HTMLInputElement>) => {
+		setGoalInput(event.target.value);
+	};
+
+	const handleSummaryInput = (event: ChangeEvent<HTMLInputElement>) => {
+		setSummaryInput(event.target.value);
+	};
 
 	const handleFormSubmit = (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 
-		const enteredGoal = goalInputRef.current!.value;
-		const enteredSummary = summaryInputRef.current!.value;
+		handleAddGoal(goalInput, summaryInput);
 
-		handleAddGoal(enteredGoal, enteredSummary);
-		event.currentTarget.reset();
+		setGoalInput('');
+		setSummaryInput('');
 	};
 
 	return (
@@ -24,7 +32,8 @@ function NewGoal(props: NewGoalProps) {
 			<p>
 				<label htmlFor='goal'>Your Goal</label>
 				<input
-					ref={goalInputRef}
+					onChange={handleGoalInput}
+					value={goalInput}
 					type='text'
 					id='goal'
 				/>
@@ -32,7 +41,8 @@ function NewGoal(props: NewGoalProps) {
 			<p>
 				<label htmlFor='summary'>Short Summary</label>
 				<input
-					ref={summaryInputRef}
+					onChange={handleSummaryInput}
+					value={summaryInput}
 					type='text'
 					id='summary'
 				/>
