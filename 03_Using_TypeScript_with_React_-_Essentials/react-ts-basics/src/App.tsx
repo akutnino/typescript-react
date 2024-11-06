@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import Header from './components/Header';
 import GoalsImg from './assets/goals.jpg';
+import Header from './components/Header';
 import CourseGoalList from './components/CourseGoalList';
+import NewGoal from './components/NewGoal';
 
 export type CourseGoal = {
 	title: string;
@@ -27,12 +28,8 @@ function App() {
 			<Header image={{ src: GoalsImg, alt: 'A list of goals' }}>
 				<h1>You Course Goals</h1>
 			</Header>
-			<button
-				type='button'
-				onClick={handleAddGoal}
-			>
-				Add Goal
-			</button>
+
+			<NewGoal />
 
 			<CourseGoalList
 				goals={goals}
