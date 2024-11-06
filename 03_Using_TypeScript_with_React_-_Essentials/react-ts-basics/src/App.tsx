@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import CourseGoal from './components/CourseGoal';
 import Header from './components/Header';
 import GoalsImg from './assets/goals.jpg';
+import CourseGoalList from './components/CourseGoalList';
 
-type CourseGoal = {
+export type CourseGoal = {
 	title: string;
 	description: string;
 	id: number;
@@ -12,7 +12,15 @@ type CourseGoal = {
 function App() {
 	const [goals, setGoals] = useState<CourseGoal[]>([]);
 
-	const handleAddGoal = (): void => {};
+	const handleAddGoal = (): void => {
+		const newGoal: CourseGoal = {
+			title: 'Learn React and TypeScript',
+			description: 'Learning it in depth',
+			id: Math.random(),
+		};
+
+		setGoals((currentGoals) => [...currentGoals, newGoal]);
+	};
 
 	return (
 		<main>
@@ -25,9 +33,8 @@ function App() {
 			>
 				Add Goal
 			</button>
-			<CourseGoal title={'Learn react and TS'}>
-				<p>Learn it from the ground up</p>
-			</CourseGoal>
+
+			<CourseGoalList goals={goals} />
 		</main>
 	);
 }
