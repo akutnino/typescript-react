@@ -1,13 +1,12 @@
-import { ComponentPropsWithoutRef } from 'react';
+import { type ComponentPropsWithoutRef } from 'react';
 
 type InputProps = {
 	label: string;
 	id: string;
-	inputProps: ComponentPropsWithoutRef<'input'>;
-};
+} & ComponentPropsWithoutRef<'input'>;
 
 function Input(props: InputProps) {
-	const { label, id, inputProps } = props;
+	const { label, id, ...inputProps } = props;
 
 	return (
 		<p>

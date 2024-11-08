@@ -1,3 +1,4 @@
+import Button from './components/Button';
 import Input from './components/Input';
 
 function App() {
@@ -6,13 +7,21 @@ function App() {
 			<Input
 				id='name'
 				label='Your Name'
-				inputProps={{ type: 'text' }}
+				type='text'
 			/>
 			<Input
 				id='age'
 				label='Your Age'
-				inputProps={{ type: 'number' }}
+				type='number'
 			/>
+
+			<Button element='button'>Click</Button>
+			<Button
+				element='anchor'
+				href='https://google.com'
+			>
+				Click
+			</Button>
 		</main>
 	);
 }
