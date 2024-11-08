@@ -20,13 +20,19 @@ function CourseGoalList(props: CourseGoalListProps) {
 	return (
 		<>
 			{goals.length === 0 && (
-				<InfoBox mode='hint'>
+				<InfoBox
+					mode='hint'
+					severity={undefined}
+				>
 					You have no course goals yet. Start adding some right now!
 				</InfoBox>
 			)}
 
 			{goals.length >= 4 && (
-				<InfoBox mode='warning'>
+				<InfoBox
+					mode='warning'
+					severity='medium'
+				>
 					You're collecting a lot of goals. Don't put too much on your plate!
 				</InfoBox>
 			)}
