@@ -15,13 +15,8 @@ function App() {
 				type='number'
 			/>
 
-			<Button element='button'>Click</Button>
-			<Button
-				element='anchor'
-				href='https://google.com'
-			>
-				Click
-			</Button>
+			<Button>Click</Button>
+			<Button href='https://google.com'>Click</Button>
 		</main>
 	);
 }
