@@ -19,7 +19,7 @@ function App() {
 			<Button>Click</Button>
 			<Button href='https://google.com'>Click</Button>
 
-			<Container as={'button'} />
+			<Container as={'button'}>Click Me</Container>
 		</main>
 	);
 }
