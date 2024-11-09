@@ -13,6 +13,7 @@ function Input(props: InputProps, ref: ForwardedRef<HTMLInputElement>) {
 			<label htmlFor={id}>{label}</label>
 			<input
 				id={id}
+				name={id}
 				ref={ref}
 				{...inputProps}
 			/>
