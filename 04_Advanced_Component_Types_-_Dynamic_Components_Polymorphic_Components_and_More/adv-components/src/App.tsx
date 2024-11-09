@@ -1,8 +1,12 @@
+import { useRef } from 'react';
 import Button from './components/Button';
 import Container from './components/Container';
 import Input from './components/Input';
 
 function App() {
+	const inputRef = useRef<HTMLInputElement>(null);
+	console.log(inputRef.current);
+
 	return (
 		<main>
 			<Input
@@ -14,6 +18,13 @@ function App() {
 				id='age'
 				label='Your Age'
 				type='number'
+			/>
+
+			<Input
+				id='test'
+				label='test'
+				type='number'
+				ref={inputRef}
 			/>
 
 			<Button>Click</Button>
