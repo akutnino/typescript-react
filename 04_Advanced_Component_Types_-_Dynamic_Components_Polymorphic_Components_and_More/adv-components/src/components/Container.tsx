@@ -5,7 +5,9 @@ type ContainerProps<T extends ElementType> = {
 	children: ReactNode;
 } & ComponentPropsWithoutRef<T>;
 
-function Container<C extends ElementType>({ as, children, ...props }: ContainerProps<C>) {
+function Container<C extends ElementType>(props: ContainerProps<C>) {
+	const { as, children } = props;
+
 	const Container = as || 'div';
 
 	return <Container {...props}>{children}</Container>;
