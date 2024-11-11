@@ -6,11 +6,11 @@ type ContainerProps<T extends ElementType> = {
 } & ComponentPropsWithoutRef<T>;
 
 function Container<C extends ElementType>(props: ContainerProps<C>) {
-	const { as, children } = props;
+	const { as, children, ...containerElementProps } = props;
 
 	const Container = as || 'div';
 
-	return <Container {...props}>{children}</Container>;
+	return <Container {...containerElementProps}>{children}</Container>;
 }
 
 export default Container;
