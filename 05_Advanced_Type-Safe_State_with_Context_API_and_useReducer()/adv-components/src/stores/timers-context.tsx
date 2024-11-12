@@ -1,4 +1,4 @@
-import { createContext, type ReactNode } from 'react';
+import { createContext, useContext, type ReactNode } from 'react';
 
 type Timer = {
 	name: string;
@@ -16,7 +16,7 @@ type TimersContextValue = TimerState & {
 	stopTimers: () => void;
 };
 
-const TimerContext = createContext<TimersContextValue | null>(null);
+const TimersContext = createContext<TimersContextValue | null>(null);
 
 type TimerContextProviderProps = {
 	children: ReactNode;
@@ -34,8 +34,17 @@ function TimerContextProvider(props: TimerContextProviderProps) {
 	};
 
 	return (
-		<TimerContext.Provider value={timerContextValue}>{children}</TimerContext.Provider>
+		<TimersContext.Provider value={timerContextValue}>{children}</TimersContext.Provider>
 	);
 }
 
-export default TimerContextProvider;
+function useTimersContext() {
+	const timerContextValue = useContext(TimersContext);
+	const ERROR_MESSAGE = `useTimersContext is used outside the TimerContextProvider's scope.`;
+	const contextIsNotValid = timerContextValue === null || timerContextValue === undefined;
+
+	if (contextIsNotValid) throw new Error(ERROR_MESSAGE);
+	return timerContextValue;
+}
+
+export { TimerContextProvider as default, useTimersContext };
