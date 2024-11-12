@@ -34,21 +34,24 @@ type ActionType = {
 
 function timerReducer(currentState: TimerState, action: ActionType): TimerState {
 	switch (action.type) {
-		case 'ADD_TIMER': {
-			return {
-				...currentState,
-			};
-		}
-
 		case 'START_TIMERS': {
 			return {
 				...currentState,
+				isRunning: true,
 			};
 		}
 
 		case 'STOP_TIMERS': {
 			return {
 				...currentState,
+				isRunning: false,
+			};
+		}
+
+		case 'ADD_TIMER': {
+			return {
+				...currentState,
+				timer: [...currentState.timer],
 			};
 		}
 
