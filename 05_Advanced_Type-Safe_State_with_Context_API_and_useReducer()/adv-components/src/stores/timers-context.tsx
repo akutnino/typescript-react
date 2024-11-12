@@ -27,16 +27,52 @@ type TimerContextProviderProps = {
 	children: ReactNode;
 };
 
+type ActionType = {
+	type: 'ADD_TIMER' | 'START_TIMERS' | 'STOP_TIMERS';
+	payload: { value: any };
+};
+
+function timerReducer(currentState: TimerState, action: ActionType): TimerState {
+	switch (action.type) {
+		case 'ADD_TIMER': {
+			return {
+				...currentState,
+			};
+		}
+
+		case 'START_TIMERS': {
+			return {
+				...currentState,
+			};
+		}
+
+		case 'STOP_TIMERS': {
+			return {
+				...currentState,
+			};
+		}
+
+		default:
+			return currentState;
+	}
+}
+
 function TimerContextProvider(props: TimerContextProviderProps) {
 	const { children } = props;
-	useReducer(reducerFN, INITIAL_STATE);
+	const [state, dispatch] = useReducer(timerReducer, INITIAL_STATE);
 
 	const timerContextValue: TimersContextValue = {
 		isRunning: false,
 		timer: [],
-		addTimer: () => {},
-		startTimers: () => {},
-		stopTimers: () => {},
+		addTimer: () => {
+			dispatch({ type: 'ADD_TIMER', payload: { value: null } });
+		},
+		startTimers: () => {
+			dispatch({ type: 'START_TIMERS', payload: { value: null } });
+		},
+		stopTimers: () => {
+			dispatch({ type: 'STOP_TIMERS', payload: { value: null } });
+		},
 	};
 
 	return (
