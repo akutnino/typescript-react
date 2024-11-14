@@ -12,12 +12,16 @@ export default function Timer(props: TimerProps) {
 	const [remainingTime, setRemainingTime] = useState(duration * 1000);
 
 	useEffect(() => {
-		setInterval(() => {
+		if (remainingTime <= 0) return;
+
+		const intervalTimer = setInterval(() => {
 			setRemainingTime((currentTime) => currentTime - 1000);
 		}, 1000);
 
-		return () => {};
-	}, []);
+		return () => {
+			clearInterval(intervalTimer);
+		};
+	}, [remainingTime]);
 
 	const formattedTime = (remainingTime / 1000).toFixed(2);
 
