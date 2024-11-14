@@ -1,6 +1,6 @@
 import { createContext, useContext, useReducer, type ReactNode } from 'react';
 
-type Timer = {
+export type Timer = {
 	name: string;
 	duration: number;
 };
@@ -59,7 +59,7 @@ function timerReducer(currentState: TimerState, action: ActionType): TimerState 
 		}
 
 		case 'ADD_TIMER': {
-			const newTimerObject = {
+			const newTimerObject: Timer = {
 				name: action.payload.name,
 				duration: action.payload.duration,
 			};

@@ -20,9 +20,7 @@ const Form = forwardRef<FormHandle, FromProps>(function Form(props, ref) {
 
 	useImperativeHandle(ref, () => {
 		return {
-			clear() {
-				formRef.current?.reset();
-			},
+			clear: () => formRef.current?.reset(),
 		};
 	});
 
