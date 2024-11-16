@@ -11,17 +11,25 @@ type CartState = {
 
 type ActionType = {
 	type: string;
-	payload: any;
+	payload?: {};
 };
 
-const INITIAL_STATE: CartState = {
+const initialState: CartState = {
 	items: [],
 };
 
-function cartReducer(currentState = INITIAL_STATE, action: ActionType) {
+function cartReducer(currentState: CartState = initialState, action: ActionType) {
 	switch (action.type) {
-		case '': {
-			return;
+		case 'cart/addItem': {
+			return {
+				...currentState,
+			};
+		}
+
+		case 'cart/removeItem': {
+			return {
+				...currentState,
+			};
 		}
 
 		default:
