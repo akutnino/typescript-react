@@ -9,10 +9,17 @@ type CartState = {
 	items: CartItem[];
 };
 
-type ActionType = {
+type CardAddItem = {
 	type: string;
-	payload?: {};
+	payload: CartItem[];
 };
+
+type CardRemoveItem = {
+	type: string;
+	payload: number;
+};
+
+type ActionType = CardAddItem | CardRemoveItem;
 
 const initialState: CartState = {
 	items: [],
