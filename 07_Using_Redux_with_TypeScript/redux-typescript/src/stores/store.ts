@@ -11,6 +11,12 @@ const rootReducer = combineReducers({
 	cart: cartReducer,
 });
 
-const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
+const preLoadedState: Partial<{ cart: never }> = { cart: undefined };
+
+const store = createStore(
+	rootReducer,
+	preLoadedState,
+	composeWithDevTools(applyMiddleware(thunk))
+);
 
 export default store;
