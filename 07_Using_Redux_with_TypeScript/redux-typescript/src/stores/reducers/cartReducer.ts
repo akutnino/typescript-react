@@ -38,9 +38,7 @@ function cartReducer(currentState: CartState = initialState, action: ActionType)
 					.includes(payload.id);
 
 				const updatedQuantityArray: CartItem[] = currState.items.map((item) =>
-					item.id === payload.id
-						? { ...item, quantity: item.quantity + payload.quantity }
-						: item
+					item.id === payload.id ? { ...item, quantity: item.quantity + 1 } : item
 				);
 
 				const updatedObjectArray: CartItem[] = isCartItemIdFound
