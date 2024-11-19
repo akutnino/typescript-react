@@ -70,7 +70,7 @@ function cartReducer(currentState: CartState = initialState, action: ActionType)
 
 					// prettier-ignore
 					const updatedItem: CartItem = removeItemAction.payload === currentItem.id
-						? {...currentItem, quantity: currentItem.quantity - 5}
+						? {...currentItem, quantity: currentItem.quantity - 1}
 						: currentItem;
 
 					if (updatedItem.quantity > 0) accumulator.push(updatedItem);
