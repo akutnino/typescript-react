@@ -1,11 +1,16 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import Cart from './Cart.tsx';
+import { addItem, removeItem } from '../stores/actions/cartAction.ts';
 
 export default function Header() {
 	const [cartIsVisible, setCartIsVisible] = useState(false);
+	const dispatch = useDispatch();
 
 	function handleOpenCartClick() {
 		setCartIsVisible(true);
+		// dispatch(addItem({ id: '3', price: 10, quantity: 20, title: 'test' }));
+		dispatch(removeItem('3'));
 	}
 
 	function handleCloseCartClick() {

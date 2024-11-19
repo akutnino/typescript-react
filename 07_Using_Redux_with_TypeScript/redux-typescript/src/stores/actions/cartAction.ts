@@ -1,5 +1,9 @@
-import { CardAddItem, CartItem } from '../reducers/cartReducer.ts';
+import { CardAddItem, CartItem, CartRemoveItem } from '../reducers/cartReducer.ts';
 
-export function addItem(newItemObject: CartItem) {
-	return { type: 'cart/addItem', payload: newItemObject } as CardAddItem;
+export function addItem(newItemObject: CartItem): CardAddItem {
+	return { type: 'cart/addItem', payload: newItemObject };
+}
+
+export function removeItem(itemID: string): CartRemoveItem {
+	return { type: 'cart/removeItem', payload: itemID };
 }
