@@ -9,7 +9,7 @@ type CartState = {
 	items: CartItem[];
 };
 
-type CardAddItem = {
+export type CardAddItem = {
 	type: string;
 	payload: CartItem;
 };
@@ -30,7 +30,7 @@ function cartReducer(currentState: CartState = initialState, action: ActionType)
 		case 'cart/addItem': {
 			const addItemAction = action as CardAddItem;
 
-			const updatedQuantityArray: CartItem[] = [...currentState.items].map((item) =>
+			const updatedQuantityArray: CartItem[] = currentState.items.map((item) =>
 				item.id === addItemAction.payload.id
 					? { ...item, quantity: item.quantity + addItemAction.payload.quantity }
 					: item
