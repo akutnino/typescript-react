@@ -62,8 +62,26 @@ function cartReducer(currentState: CartState = initialState, action: ActionType)
 		}
 
 		case 'cart/removeItem': {
+			const removeItemAction = action as CartRemoveItem;
+
+			const updatedArray: CartItem[] = currentState.items.reduce(
+				(accumulator: CartItem[], currentItem: CartItem, _, array) => {
+					if (array.length === 0) return accumulator;
+
+					// prettier-ignore
+					const updatedItem: CartItem = removeItemAction.payload === currentItem.id
+						? {...currentItem, quantity: currentItem.quantity - 5}
+						: currentItem;
+
+					if (updatedItem.quantity > 0) accumulator.push(updatedItem);
+					return accumulator;
+				},
+				[]
+			);
+
 			return {
 				...currentState,
+				items: updatedArray,
 			};
 		}
 

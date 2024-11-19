@@ -9,6 +9,8 @@ export default function Header() {
 
 	function handleOpenCartClick() {
 		setCartIsVisible(true);
+		// dispatch(addItem({ id: '1', price: 10, quantity: 20, title: 'test' }));
+		// dispatch(addItem({ id: '2', price: 10, quantity: 20, title: 'test' }));
 		// dispatch(addItem({ id: '3', price: 10, quantity: 20, title: 'test' }));
 		dispatch(removeItem('3'));
 	}
